@@ -1,5 +1,5 @@
-const { default: AppError } = require("../utils/appError");
-const User = require('../models/user.models')
+import AppError from '../utils/appError.js';
+import User from '../models/user.models.js';
 
 const cookieOptions = {
   secure: true,
@@ -102,4 +102,4 @@ const getProfile = (req, res) => {
   
 }
 
-module.exports = {register, login, logout, getProfile};
+export {register, login, logout, getProfile};

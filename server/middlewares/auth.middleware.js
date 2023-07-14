@@ -1,3 +1,6 @@
+import AppError from "../utils/appError.js";
+import jwt from 'jsonwebtoken';
+
 
 const isLoggedIn = function(req, res, next) {
   const { token } = req.cookies;
@@ -16,6 +19,6 @@ const isLoggedIn = function(req, res, next) {
   next();
 }
 
-module.exports = {
+export {
   isLoggedIn
 }

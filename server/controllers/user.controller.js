@@ -102,4 +102,29 @@ const getProfile = (req, res) => {
   
 }
 
-export {register, login, logout, getProfile};
+const forgotPassword = async (req, res, next) => {
+  const { email } = req.body;
+
+
+  if(!email) {
+    return next(
+      new AppError('Email is required', 400)
+    )
+  }
+
+const user = await User.findOne ({ email });
+
+if(!user) {
+  return next(
+    new AppError('Email is not registered', 400)
+  )
+}
+
+
+}
+
+const resetPassword = async (req, res, next) => {
+
+}
+
+export {register, login, logout, getProfile, forgotPassword, resetPassword};

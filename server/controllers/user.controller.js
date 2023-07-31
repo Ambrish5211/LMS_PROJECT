@@ -151,6 +151,8 @@ if(!user) {
   const subject = 'Reset Password';
   const message = `You can reset your password by clicking <a href=${resetPasswordUrl} target="_blank">Reset your Password</a>`;
 
+  console.log(resetPasswordUrl);
+
 try {
   await sendEmail(email, subject, message);
 

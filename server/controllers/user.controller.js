@@ -1,6 +1,8 @@
 import AppError from '../utils/appError.js';
 import User from '../models/user.models.js';
 import sendEmail from '../utils/sendemail.js';
+import cloudinary from 'cloudinary';
+
 
 const cookieOptions = {
   secure: true,
@@ -9,7 +11,7 @@ const cookieOptions = {
   
 }
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
   const { fullName, email, password } = req.body;
 
   if(!fullName || !email || !password){
@@ -34,6 +36,26 @@ const register = async (req, res) => {
 
   if(!user) {
     return next(new AppError('User registration failed', 400))
+  }
+
+  if(req.file) {
+    try {
+      const result = await cloudinary.v2.uploader.upload(req.file.path, {
+        folder: 'lms', 
+        width: 250,
+        height: 250,
+        gravity: 'faces',
+        crop: 'fill'
+      });
+      if (result) {
+        user.avatar.public_id = result.public_id;
+        user.avatar.secure_url = result.secure_url;
+
+        fs.rm(`uploads/${req.file.filename}`);
+      }
+    } catch (error) {
+      return next(new AppError(e.message || 'File not uploaded', 500))
+    }
   }
 
 await user.save();

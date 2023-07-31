@@ -1,5 +1,6 @@
 import AppError from '../utils/appError.js';
 import User from '../models/user.models.js';
+import sendEmail from '../utils/sendemail.js';
 
 const cookieOptions = {
   secure: true,
@@ -118,6 +119,30 @@ if(!user) {
   return next(
     new AppError('Email is not registered', 400)
   )
+}
+
+  const resetToken = await user.generatePasswordToken();
+
+  await user.save();
+
+  const resetPasswordUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
+  const subject = 'Reset Password';
+  const message = `You can reset your password by clicking <a href=${resetPasswordUrl} target="_blank">Reset your Password</a>`;
+
+try {
+  await sendEmail(email, subject, message);
+
+  res.status(200).json ({
+    success:true,
+    message: `reset password token has been sent to ${email} successfully`
+  })
+} catch (error) {
+
+  user.forgotPasswordExpiry = undefined;
+  user.forgotPasswordToken = undefined;
+  await user.save();
+  return next(new AppError(error.message, 500));
+  
 }
 
 

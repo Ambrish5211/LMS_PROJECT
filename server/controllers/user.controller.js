@@ -2,6 +2,7 @@ import AppError from '../utils/appError.js';
 import User from '../models/user.models.js';
 import sendEmail from '../utils/sendemail.js';
 import cloudinary from 'cloudinary';
+import crypto from 'crypto';
 
 
 const cookieOptions = {
@@ -173,7 +174,36 @@ try {
 }
 
 const resetPassword = async (req, res, next) => {
+    const { resetToken} = req.params;
+    const { password }= req.body;
 
+    const forgotPasswordToken = crypto
+      .createHash('sha256')
+      .update(resetToken)
+      .digest('hex');
+
+
+      const user = await User.findOne({
+        forgotPasswordToken,
+        forgotPasswordExpiry: { $gt:Date.now() }
+      });
+
+      if(!user) {
+        return next(
+          new AppError('Token is invalid or expired, please try again', 400)
+        )
+      }
+
+      user.password = password;
+      user.forgotPasswordExpiry = undefined;
+      user.forgotPasswordToken = undefined;
+
+      await user.save();
+
+      res.status(200).json({
+        success:true,
+        message:'Password changed successfully'
+      })
 }
 
 export {register, login, logout, getProfile, forgotPassword, resetPassword};

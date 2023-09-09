@@ -84,7 +84,7 @@ const login = async (req, res) => {
     email
   }).select('+password');
   
-  if(!user || user.comparePassword(password)) { // TODO
+  if(!user || user.comparePassword(password)) { 
     return next(new AppError('Email or password do not match', 400));
   }
 

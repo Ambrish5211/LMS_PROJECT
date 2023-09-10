@@ -2,6 +2,7 @@ import AppError from '../utils/appError.js';
 import User from '../models/user.models.js';
 import sendEmail from '../utils/sendemail.js';
 import cloudinary from 'cloudinary';
+import fs from 'fs/promises'
 import crypto from 'crypto';
 
 
@@ -55,7 +56,7 @@ const register = async (req, res, next) => {
         fs.rm(`uploads/${req.file.filename}`);
       }
     } catch (error) {
-      return next(new AppError(e.message || 'File not uploaded', 500))
+      return next(new AppError(error.message || 'File not uploaded', 500))
     }
   }
 

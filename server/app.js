@@ -21,10 +21,10 @@ app.use(cookieParser());
 app.use('/ping', (req, res) => {
   res.send('Pong');
 })
-
+app.use('/api/v1/courses', courseRoutes);
 // 3 route config
 app.use('/api/v1/user', userRoutes);
-app.use('api/v1/courses', courseRoutes);
+
 
 app.all('*',(req, res)=>{
   res.status(404).send('OOPS!! 404 page not found');

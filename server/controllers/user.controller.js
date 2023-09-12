@@ -62,7 +62,7 @@ const register = async (req, res, next) => {
 
 await user.save();
 
-// TODO: get JWT token in cookie
+
 
 user.password = undefined;
 

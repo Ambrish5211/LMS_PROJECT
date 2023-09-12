@@ -14,4 +14,6 @@ router
     .route('/:courseId')
     .get(isLoggedIn,getLecturesByCourseId)
     .put(updateCourse)
+
+    
 export default router

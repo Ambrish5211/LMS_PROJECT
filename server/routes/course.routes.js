@@ -7,10 +7,11 @@ const router = Router();
 
 router
     .route('/')
-    .get(getAllCourses);
+    .get(getAllCourses)
+    .post(createCourse)
 
 router
     .route('/:courseId')
-    .get(isLoggedIn,getLecturesByCourseId);
-
+    .get(isLoggedIn,getLecturesByCourseId)
+    .put(updateCourse)
 export default router

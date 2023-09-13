@@ -74,7 +74,7 @@ res.status(200).json({
 
 }
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   if(!email || !password) {

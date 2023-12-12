@@ -26,7 +26,7 @@
 ```
 
 
-### How to setup taildinw in your project [Link](https://tailwindcss.com/docs/guides/vite)
+### How to setup tailwind in your project [Link](https://tailwindcss.com/docs/guides/vite)
 
 1. Install tailwind and other dependencies
 ```
@@ -62,7 +62,7 @@
     npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-chartjs-2 chart.js daisyui axios react-hot-toast @tailwindcss/line-clamp
 ```
 
-### Adding auto import sort for esline
+### Adding auto import sort for eslint
 
 1. Install the plugin
 

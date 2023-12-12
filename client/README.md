@@ -11,7 +11,7 @@
 2. Move into the directory
 
 ```
-    cd lms-frontend-en
+    cd client
 ```
 
 3. Install dependencies

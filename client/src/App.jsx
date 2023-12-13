@@ -1,9 +1,11 @@
 import "./App.css";
 
+import Footer from "./Components/Footer";
+
 function App() {
   return (
     <>
-      <h1 className="text-5xl ">Hellow </h1>
+      <Footer />
     </>
   );
 }

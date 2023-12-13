@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from "../Components/Footer";
 import logout  from '../redux/slices/authSlice';
-// import {logout}  from '../redux/slices/authSlice'; will change it back later
+// import {logout}  from '../redux/slices/authSlice'; will change it back later  
 
 
 function HomeLayout({ children }) {
@@ -44,7 +44,7 @@ function HomeLayout({ children }) {
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <label htmlFor="my-drawer">
-                        <FiMenu onClick={changeWidth} size={"32px"} className='font-bold text-white m-4' />
+                        <FiMenu onClick={changeWidth} size={"32px"} className='font-bold text-white m-4 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer' />
                     </label>
                 </div>
                 <div className="drawer-side w-0">

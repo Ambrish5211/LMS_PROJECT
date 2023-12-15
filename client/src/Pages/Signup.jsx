@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { isEmail, isValidPassword } from "../helpers/regexMatcher";
 import HomeLayout from "../Layouts/HomeLayout";
-import createAccount  from "../redux/slices/authSlice";
+import { createAccount } from "../redux/slices/authSlice";
 
 function Signup() {
 
@@ -62,7 +62,7 @@ function Signup() {
             return;
         }
         if(!isValidPassword(signupDetails.password)) {
-            toast.error("Invalid password provided, password should 8-16 character long with atleast a number and a special character");
+            toast.error("Invalid password provided, password should 6-16 character long with atleast a number and a special character");
             return;
         }
 
@@ -116,7 +116,7 @@ function Signup() {
                             type="text" 
                             name="fullName"
                             className="bg-transparent px-2 py-1 border"
-                            placeholder="Enter your username..."
+                            placeholder="enter your username..."
                             id="fullName" />
                     </div>
                     <div className="flex flex-col gap-1">
@@ -128,7 +128,7 @@ function Signup() {
                             type="text" 
                             name="email"
                             className="bg-transparent px-2 py-1 border"
-                            placeholder="Enter your Email..."
+                            placeholder="enter your Email..."
                             id="email" />
                     </div>
                     <div className="flex flex-col gap-1">
@@ -140,7 +140,7 @@ function Signup() {
                             type="password" 
                             name="password"
                             className="bg-transparent px-2 py-1 border"
-                            placeholder="Enter your Password..."
+                            placeholder="enter your Password..."
                             id="password" />
                     </div>
                     <button className="mt-2 bg-yellow-800 hover:bg-yellow-500 transition-all ease-in-out duration-300 cursor-pointer py-2 font-semibold text-lg">

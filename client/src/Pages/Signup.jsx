@@ -62,7 +62,7 @@ function Signup() {
             return;
         }
         if(!isValidPassword(signupDetails.password)) {
-            toast.error("Invalid password provided, password should 6-16 character long with atleast a number and a special character");
+            toast.error("Invalid password provided, password should 8-16 character long with atleast a number and a special character");
             return;
         }
 

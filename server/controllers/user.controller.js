@@ -85,7 +85,7 @@ const login = async (req, res, next) => {
     email
   }).select('+password');
   
-  if(!user || user.comparePassword(password)) { 
+  if(!user || !user.comparePassword(password)) { 
     return next(new AppError('Email or password do not match', 400));
   }
 
@@ -96,7 +96,7 @@ const login = async (req, res, next) => {
 
   res.status(201).json({
     success: true,
-    message: 'User registered Successfully',
+    message: 'User LoggedIn Successfully',
     user
   })
 

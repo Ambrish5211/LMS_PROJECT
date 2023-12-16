@@ -85,8 +85,13 @@ const login = async (req, res, next) => {
     email
   }).select('+password');
   
-  if(!user || !user.comparePassword(password)) { 
-    return next(new AppError('Email or password do not match', 400));
+  if(!user || !(await user.comparePassword(password))) { 
+    res.status(401).json({
+      success: false,
+      message: 'Email or password do not match'
+    });
+
+    return;
   }
 
   const token = await user.generateJWTToken();

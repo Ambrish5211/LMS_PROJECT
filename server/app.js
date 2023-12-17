@@ -6,6 +6,7 @@ import {config} from 'dotenv';
 config();
 import userRoutes from './routes/user.routes.js'
 import courseRoutes from './routes/course.routes.js'
+import contactRoutes from './routes/contact.routes.js'
 import errorMiddleware from './middlewares/error.middlewares.js'
 import morgan from 'morgan';
 
@@ -24,6 +25,7 @@ app.use('/ping', (req, res) => {
 app.use('/api/v1/courses', courseRoutes);
 // 3 route config
 app.use('/api/v1/user', userRoutes);
+app.use('/api/v1', contactRoutes);
 
 
 app.all('*',(req, res)=>{

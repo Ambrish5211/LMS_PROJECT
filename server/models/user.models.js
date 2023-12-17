@@ -7,7 +7,7 @@ const userSchema = new Schema(
   {
     fullName: {
       type: String,
-      required: [true, "Email is required"],
+      required: [true, "Name is required"],
       minLength: [5, "Name must be less than 50 character"],
       lowercase: true,
       trim: true,
@@ -87,6 +87,6 @@ userSchema.methods = {
   },
 };
 
-const User = model("User", userSchema);
+const User =new model("User", userSchema);
 
 export default User;

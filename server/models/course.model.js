@@ -11,7 +11,7 @@ const courseSchema = new Schema({
     description: {
         type: String,
         required: [true,'Description is required'],
-        maxLength: [200, 'Description must be less than 60 characters'],
+        maxLength: [199, 'Description must be less than 200 characters'],
         minLength: [8, 'Description must be at least 8 characters'],
         trim: true
     },
@@ -45,7 +45,7 @@ const courseSchema = new Schema({
     }],
     numberOfLectures: {
         type:Number,
-        default:0
+        default: 0
     },
     createdBy: {
         type: String,

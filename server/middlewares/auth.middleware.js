@@ -6,7 +6,7 @@ const isLoggedIn = function(req, res, next) {
   const { token } = req.cookies;
 
   if(!token) {
-    return next(new AppError('Unauthenticated, please login', 401))
+    return next(new AppError('no token please login', 401))
   }
 
   const tokenDetails = jwt.verify(token, process.env.JWT_SECRET);

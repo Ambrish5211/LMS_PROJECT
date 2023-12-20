@@ -15,7 +15,7 @@ const router = Router();
 router
   .route("/")
   .get(getAllCourses)
-  .post(isLoggedIn,authorizedRoles,upload.single("thumbnail"), createCourse);
+  .post(isLoggedIn,authorizedRoles("ADMIN"),upload.single("thumbnail"), createCourse);
 
 router
   .route("/:courseId")

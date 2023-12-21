@@ -13,6 +13,7 @@ import Home from "./Pages/Home";
 import NotFound from "./Pages/NotFound";
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
+import Profile from "./Pages/User/Profile";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
       <Route path="/signin" element={<Signin />} ></Route>
       <Route path="/courses" element={<CourseList />} ></Route>
       <Route path="/course/description" element={<CourseDescription />} ></Route>
+
+      <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />} >
+        <Route path="/user/profile" element={<Profile />}></Route> 
+      </Route>
 
       <Route element={<RequireAuth allowedRoles={["ADMIN"]} />} >
         <Route path="/courses/create" element={<CreateCourse />}></Route> 

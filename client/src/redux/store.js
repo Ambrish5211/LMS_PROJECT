@@ -8,6 +8,11 @@ const store = configureStore({
     auth: authReducer,
     course: courseReducer
   },
+
+  
+  // Serializable data error fix code
+
+
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck: false}),
   devTools: true
 })

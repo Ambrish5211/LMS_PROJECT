@@ -41,7 +41,6 @@ function Signin() {
         console.log(signinDetails);
 
         const response = await dispatch(login(signinDetails));
-        console.log(response);
         if(response?.payload?.data?.success) {
             navigate("/");
         }
@@ -85,7 +84,7 @@ function Signin() {
                         Sign In
                     </button>
                     <p className="text-center">
-                            Don&apos;t have an account ? <Link to="/signup" className="cusror-pointer text-accent">Login</Link>
+                            Don&apos;t have an account ? <Link to="/signup" className="cusror-pointer text-accent">Register</Link>
                     </p>
                 </form>
             </div>

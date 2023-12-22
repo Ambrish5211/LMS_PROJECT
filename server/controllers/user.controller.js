@@ -31,7 +31,7 @@ const register = async (req, res, next) => {
     email,
     password,
     avatar: {
-      public_id: email,
+      public_id: '',
       secure_url: ''
     }
   });
@@ -121,14 +121,20 @@ const logout = (req, res) => {
   
 }
 
-const getProfile = (req, res) => {
-  const user = User.findById(req.user.id);
+const getProfile =async (req, res) => {
+  const {id} = req.user
+  try {
+    const user = await User.findById(id);
 
   res.status(200).json({
     success:true,
     message: 'User details',
     user
   })
+  } catch (error) {
+    throw new AppError(error.message, 400)
+  }
+  
   
 }
 
@@ -256,9 +262,10 @@ const changePassword = async (req, res, next) => {
 
 const updateUser = async function(req, res, next) {
   const { fullName} =  req.body;
-  const {id} = req.user;
+  const {id} = req.params;
 
-  const user = await User.findById(id);
+  try {
+    const user = await User.findById(id);
 
   if(!user) {
     return next(
@@ -294,6 +301,11 @@ res.status(200).json({
   success:true,
   message: 'User details updated successfully!'
 })
+  } catch (error) {
+    throw new AppError("Updation Failed", 400)
+  }
+ 
+  
 
 }
 

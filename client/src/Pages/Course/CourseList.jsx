@@ -21,12 +21,12 @@ function CourseList() {
 
     return (
         <HomeLayout>
-            <div className="min-h-[90vh] pt-12 pl-20 flex flex-col gap-10 text-white">
+            <div className="min-h-[90vh] pt-12 px-12 flex flex-col gap-10 text-white">
                 <h1 className="text-center text-4xl font-semibold mb-5">
                     Explore courses made by { " " } 
                     <span className="font-bold text-yellow-500">Industry experts</span>
                 </h1>
-                <div className="mb-10 flex flex-wrap gap-14">
+                <div className="mb-10 flex flex-wrap gap-16 justify-between px-12">
                     {courseList?.map((element) => {
                         return <CourseCard key={element._id} data={element} />
                     })}

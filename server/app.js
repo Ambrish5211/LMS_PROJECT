@@ -7,6 +7,7 @@ config();
 import userRoutes from './routes/user.routes.js'
 import courseRoutes from './routes/course.routes.js'
 import contactRoutes from './routes/contact.routes.js'
+import paymentRoutes from './routes/payment.routes.js'
 import errorMiddleware from './middlewares/error.middlewares.js'
 import morgan from 'morgan';
 
@@ -30,6 +31,7 @@ app.use('/api/v1/courses', courseRoutes);
 // 3 route config
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1', contactRoutes);
+app.use('/api/v1/payments',paymentRoutes);
 
 
 app.all('*',(req, res)=>{

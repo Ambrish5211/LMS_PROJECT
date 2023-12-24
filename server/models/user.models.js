@@ -73,7 +73,7 @@ userSchema.methods = {
       },
       process.env.JWT_SECRET,
       {
-        expiresIn: 600,
+        expiresIn: "2 days",
       }
     );
   },

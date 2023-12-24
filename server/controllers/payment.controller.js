@@ -45,7 +45,8 @@ export const buySubscription = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: "Subscription successful"
+      message: "Subscription successful",
+      subscription_id : subscription.id
     })
 
   } catch (error) {

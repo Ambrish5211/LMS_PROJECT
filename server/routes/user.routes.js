@@ -1,6 +1,5 @@
 import express from 'express';
 const router = express.Router();
-const app = express()
 import upload from '../middlewares/multer.middleware.js';
 
 import { register, login, logout, getProfile, resetPassword, forgotPassword, changePassword, updateUser } from '../controllers/user.controller.js';

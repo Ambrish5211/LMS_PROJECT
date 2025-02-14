@@ -1,1 +1,0 @@
-Linked lists are fundamental data structures in computer science, providing dynamic storage for collections of items. Traditionally, linked lists are traversed sequentially from the head node to the tail node. However, there are scenarios where it is advantageous to display a linked list from both ends. This report explores this concept in detail.

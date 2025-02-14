@@ -1,3 +1,13 @@
+// Register User
+// Login User
+// Logout User
+// GetProfile
+// ForgotPassword
+// ResetPassword
+// ChangePassword
+// Update User
+
+
 import AppError from '../utils/appError.js';
 import User from '../models/user.models.js';
 import sendEmail from '../utils/sendemail.js';
@@ -13,17 +23,19 @@ const cookieOptions = {
   
 }
 
+// register user
+
 const register = async (req, res, next) => {
   const { fullName, email, password } = req.body;
-
+  
   if(!fullName || !email || !password){
-    return next(new AppError('All fields are required', 400));
+    return next(new AppError(400, 'All fields are required'));
   }
 
   const userExists = await User.findOne({ email });
 
   if(userExists) {
-    return next(new AppError('User already exists', 400));
+    return next(new AppError(400, 'User already exists'));
   }
 
   const user = await User.create({
@@ -37,7 +49,7 @@ const register = async (req, res, next) => {
   });
 
   if(!user) {
-    return next(new AppError('User registration failed', 400))
+    return next(new AppError(400, 'User registration failed'))
   }
 
   if(req.file) {
@@ -56,13 +68,11 @@ const register = async (req, res, next) => {
         fs.rm(`uploads/${req.file.filename}`);
       }
     } catch (error) {
-      return next(new AppError(error.message || 'File not uploaded', 500))
+      return next(new AppError(500, error.message || 'File not uploaded'))
     }
   }
 
 await user.save();
-
-
 
 user.password = undefined;
 
@@ -71,14 +81,15 @@ res.status(200).json({
   message: 'User registered successfully',
   user
 })
-
 }
+
+// login user
 
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   if(!email || !password) {
-    return next(new AppError('All fields are required', 400));
+    return next(new AppError(400,'All fields are required'));
   }
 
   const user = await User.findOne({
@@ -107,6 +118,8 @@ const login = async (req, res, next) => {
 
 }
 
+// logout user
+
 const logout = (req, res) => {
   res.cookie('token', null, {
     secure:true,
@@ -132,7 +145,7 @@ const getProfile =async (req, res) => {
     user
   })
   } catch (error) {
-    throw new AppError(error.message, 400)
+    throw new AppError( 400, error.message)
   }
   
   

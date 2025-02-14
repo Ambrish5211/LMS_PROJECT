@@ -71,7 +71,7 @@ userSchema.methods = {
         email: this.email,
         subscription: this.subscription,
       },
-      process.env.JWT_SECRET,
+      process.env.ACCESS_TOKEN_SECRET,
       {
         expiresIn: "2 days",
       }

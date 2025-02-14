@@ -98,6 +98,7 @@ function Signup() {
                             <BsPersonCircle className="w-24 h-24 rounded-full m-auto" />
                         )}
                     </label>
+                    {/* Here, id of input and htmlfor of label is same, so that input can be accessed by clicking on the label.  */}
                     <input
                         onChange={handleImage}
                         type="file" 

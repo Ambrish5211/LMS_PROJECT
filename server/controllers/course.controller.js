@@ -13,7 +13,7 @@ import fs from "fs/promises";
 
 export const getAllCourses = async (req, res, next) => {
   try {
-    const courses = await Course.find({}).select("-lectures");
+    const courses = await Course.find({});
     res.status(200).json({
       success: true,
       message: "All courses",
@@ -136,7 +136,7 @@ export const addLecturesToCourseById = async (req, res, next) => {
   try {
     const { title, description } = req.body;
     const { courseId } = req.params;
-
+    console.log(courseId)
     if (!title || !description) {
       return next(new AppError( 400, "All fields are required"));
     }
@@ -155,7 +155,8 @@ export const addLecturesToCourseById = async (req, res, next) => {
 
     if (req.file) {
       const result = await cloudinary.v2.uploader.upload(req.file.path, {
-        folder: lms,
+        folder: 'lms',
+        resource_type: "video"
       });
 
       if (result) {
@@ -163,10 +164,10 @@ export const addLecturesToCourseById = async (req, res, next) => {
         lectureData.lecture.secure_url = result.secure_url;
       }
 
-      fs.rm(`uploads/${req.file.filename}`);
+      await fs.rm(`uploads/${req.file.filename}`);
     }
 
-    course.lectures.push(lecturesData);
+    course.lectures.push(lectureData);
     course.numberOfLectures = course.lectures.length;
 
     await course.save();

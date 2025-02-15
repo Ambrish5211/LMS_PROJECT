@@ -13,7 +13,7 @@ export const getRazorpayApiKey = async (req, res, next) => {
      })
   } catch (error) {
     return next(
-      new AppError(error.message, 500)
+      new AppError( 500, error.message)
     )
   }
 
@@ -26,11 +26,11 @@ export const buySubscription = async (req, res, next) => {
     const user = await User.findById(id);
 
     if(!user){
-      return next(new AppError('Unauthorized, please login', 500))
+      return next(new AppError( 500, 'Unauthorized, please login'))
     }
 
     if(user.role === "ADMIN"){
-      return next(new AppError('Admin cannot buy a subscription', 500))
+      return next(new AppError(500, 'Admin cannot buy a subscription'))
 
     }
 
@@ -52,7 +52,7 @@ export const buySubscription = async (req, res, next) => {
   } catch (error) {
     console.log(error)
     return next(
-      new AppError(error.message, 500)
+      new AppError( 500, error.message)
     )
   }
 }
@@ -96,7 +96,7 @@ export const verifySubscription = async (req, res, next) => {
 
   } catch (error) {
     return next(
-      new AppError(error.message, 500)
+      new AppError( 500, error.message)
     )
   }
 }

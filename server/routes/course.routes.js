@@ -23,7 +23,7 @@ router
   .put(isLoggedIn,authorizedRoles("ADMIN"),updateCourse)
   .delete(isLoggedIn,authorizedRoles("ADMIN"),deleteCourse)
   .post(isLoggedIn,authorizedRoles("ADMIN"),
-    upload.single('thumbnail'),
+    upload.single('file'),
     addLecturesToCourseById
   );
 

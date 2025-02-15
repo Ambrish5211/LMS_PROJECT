@@ -18,6 +18,8 @@ import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import EditProfile from "./Pages/User/EditProfile";
 import Profile from "./Pages/User/Profile";
+import DisplayLectures from "./Pages/Dashboard/DisplayLectures";
+import AddLecture from "./Pages/Dashboard/AddLecture";
 
 function App() {
   return (
@@ -35,10 +37,12 @@ function App() {
         <Route path="/checkout" element={<Checkout />} ></Route>
         <Route path="/checkout/success" element={<CheckoutSuccess />} ></Route>
         <Route path="/checkout/failure" element={<CheckoutFailure />} ></Route>
+        <Route path="/course/displaylectures" element = {<DisplayLectures />}></Route>
       </Route>
 
       <Route element={<RequireAuth allowedRoles={["ADMIN"]} />} >
         <Route path="/courses/create" element={<CreateCourse />}></Route> 
+        <Route path="/course/addlecture" element={<AddLecture />}></Route>
       </Route>
 
       <Route path="/contact" element={<Contact />} ></Route>

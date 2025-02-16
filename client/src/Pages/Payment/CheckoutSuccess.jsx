@@ -3,7 +3,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import HomeLayout from "../../layouts/HomeLayout.jsx";
+import HomeLayout from "../../Layouts/HomeLayout.jsx";
 import { getUserData } from "../../redux/slices/authSlice.js";
 
 function CheckoutSuccess() {

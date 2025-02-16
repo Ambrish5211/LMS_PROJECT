@@ -3,7 +3,7 @@ import apj from "../assets/apj.png";
 import billGates from "../assets/billGates.png";
 import nelsonMandela from "../assets/nelsonMandela.png";
 import steveJobs from "../assets/steveJobs.png";
-import HomeLayout from '../layouts/HomeLayout.jsx';
+import HomeLayout from '../Layouts/HomeLayout.jsx';
 
 function Aboutus() {
     return (

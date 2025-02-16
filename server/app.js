@@ -12,7 +12,10 @@ import errorMiddleware from './middlewares/error.middlewares.js'
 import morgan from 'morgan';
 
 const app = express();
-app.use(cors('*'));
+app.use(cors({
+   origin: ['http://localhost:5173', 'https://lms-project-roan-ten.vercel.app'],
+   credentials:true
+}));
 
 app.use(morgan('dev'));
 

@@ -12,12 +12,8 @@ function DisplayLectures() {
     const navigate = useNavigate();
     
     const {state} = useLocation();
-    console.log(state)
+    const {lectures} = useSelector((state) => state.lecture || []);
     const {role} = useSelector((state) => state.auth);
-    console.log(role)
-    const lectures =  state.lectures;
-    console.log(lectures)
-    
 
     const [currentVideo, setCurrentVideo] = useState(0);
 
@@ -27,7 +23,10 @@ function DisplayLectures() {
         await dispatch(getCourseLecture(state._id));
     }
 
-    
+    useEffect(() => {
+        if(!state) navigate("/courses");
+        dispatch(getCourseLecture(state._id));
+    }, [])
 
     return (
         <HomeLayout>

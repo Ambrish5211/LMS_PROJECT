@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 
-import homePageMainImage from "../assets/Images/homePageMainImage.png";
+import homePageMainImage from "../assets/homePageMainImage.png";
 import HomeLayout from "../Layouts/HomeLayout";
 function Home() {
   return (

@@ -1,4 +1,4 @@
-import aboutMainPage from '../assets/Images/aboutMainImage.png';
+// import aboutMainPage from '../assets/Images/aboutMainImage.png';
 import apj from "../assets/Images/apj.png";
 import billGates from "../assets/Images/billGates.png";
 import nelsonMandela from "../assets/Images/nelsonMandela.png";
@@ -22,11 +22,11 @@ function Aboutus() {
                         </p>
                     </section>
                     <div className="w-1/2">
-                        <img 
+                        {/* <img 
                             src={aboutMainPage}
                             className='drop-shadow-2xl'
                             alt="about main page"
-                        />
+                        /> */}
                     </div>
                 </div>
                 <div className="carousel w-1/2 my-10 mx-auto">

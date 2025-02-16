@@ -12,7 +12,7 @@ import errorMiddleware from './middlewares/error.middlewares.js'
 import morgan from 'morgan';
 
 const app = express();
-app.use(cors());
+app.use(cors('*'));
 
 app.use(morgan('dev'));
 

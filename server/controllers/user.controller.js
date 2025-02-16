@@ -19,7 +19,8 @@ import crypto from 'crypto';
 const cookieOptions = {
   secure: true,
   maxAge: 7* 24 * 24* 60 * 1000,
-  httpOnly: true
+  httpOnly: true,
+  sameSite: "none"
   
 }
 

@@ -1,7 +1,7 @@
 import { RxCrossCircled } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
-import HomeLayout from "../../Layouts/HomeLayout";
+import HomeLayout from "../../layouts/HomeLayout.jsx";
 
 function CheckoutFailure() {
 

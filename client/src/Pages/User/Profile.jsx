@@ -2,8 +2,8 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../Layouts/HomeLayout";
-import  {getUserData}  from "../../redux/slices/authSlice";
+import HomeLayout from "../../layouts/HomeLayout.jsx";
+import  {getUserData}  from "../../redux/slices/authSlice.js";
 // import { cancelCourseBundle } from "../../redux/slices/razorPaySlice";
 function Profile() {
 

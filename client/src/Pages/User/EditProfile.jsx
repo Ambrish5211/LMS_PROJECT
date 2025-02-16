@@ -4,8 +4,8 @@ import { BsPersonCircle } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../Layouts/HomeLayout";
-import { getUserData, updateProfile } from "../../redux/slices/authSlice";
+import HomeLayout from "../../layouts/HomeLayout.jsx";
+import { getUserData, updateProfile } from "../../redux/slices/authSlice.js";
 
 function EditProfile() {
 

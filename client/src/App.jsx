@@ -2,24 +2,24 @@ import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
 
-import RequireAuth from "./Components/Auth/RequireAuth"
-import AboutUs from "./Pages/AboutUs";
-import Contact from "./Pages/Contact";
-import CourseDescription from "./Pages/Course/CourseDescription";
-import CourseList from "./Pages/Course/CourseList";
-import CreateCourse from "./Pages/Course/CreateCourse";
-import Denied from "./Pages/Denied";
-import Home from "./Pages/Home";
-import NotFound from "./Pages/NotFound";
-import Checkout from "./Pages/Payment/Checkout";
-import CheckoutFailure from "./Pages/Payment/CheckoutFailure";
-import CheckoutSuccess from "./Pages/Payment/CheckoutSuccess";
-import Signin from "./Pages/Signin";
-import Signup from "./Pages/Signup";
-import EditProfile from "./Pages/User/EditProfile";
-import Profile from "./Pages/User/Profile";
-import DisplayLectures from "./Pages/Dashboard/DisplayLectures";
-import AddLecture from "./Pages/Dashboard/AddLecture";
+import RequireAuth from "./Components/Auth/RequireAuth.jsx"
+import AboutUs from "./Pages/AboutUs.jsx";
+import Contact from "./Pages/Contact.jsx";
+import CourseDescription from "./Pages/Course/CourseDescription.jsx";
+import CourseList from "./Pages/Course/CourseList.jsx";
+import CreateCourse from "./Pages/Course/CreateCourse.jsx";
+import Denied from "./Pages/Denied.jsx";
+import Home from "./Pages/Home.jsx";
+import NotFound from "./Pages/NotFound.jsx";
+import Checkout from "./Pages/Payment/Checkout.jsx";
+import CheckoutFailure from "./Pages/Payment/CheckoutFailure.jsx";
+import CheckoutSuccess from "./Pages/Payment/CheckoutSuccess.jsx";
+import Signin from "./Pages/Signin.jsx";
+import Signup from "./Pages/Signup.jsx";
+import EditProfile from "./Pages/User/EditProfile.jsx";
+import Profile from "./Pages/User/Profile.jsx";
+import DisplayLectures from "./Pages/Dashboard/DisplayLectures.jsx";
+import AddLecture from "./Pages/Dashboard/AddLecture.jsx";
 
 function App() {
   return (
